@@ -1,0 +1,43 @@
+using System;
+namespace qwerty
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int lengthOfArray;
+            int sumOfMiddleArithmetic = 0, countOfMiddleArithmetic = 0;
+            float middleArithmetic;
+
+            Console.Write("Введите длину массива: ");
+            lengthOfArray = int.Parse(Console.ReadLine());
+
+            int[] array = new int[lengthOfArray];
+
+            Console.WriteLine("\nВведите числа массива");
+
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                Console.Write($"Элемент №{i+1} ");
+                array[i] = int.Parse(Console.ReadLine());
+
+                if (array[i] != 0)
+                {
+                    countOfMiddleArithmetic += 1;
+                    sumOfMiddleArithmetic += array[i];
+                }
+            }
+
+            Console.Clear();
+            Console.WriteLine("Массив: ");
+
+            for (int i = 0; i < lengthOfArray; i++)
+            {
+                Console.Write($"{array[i] } ");
+            }
+
+            middleArithmetic = (float) sumOfMiddleArithmetic / countOfMiddleArithmetic;
+            Console.WriteLine($"\n\nСреднее арифметическое ненулевых чисел массива: {middleArithmetic}");
+        }
+    }
+}
